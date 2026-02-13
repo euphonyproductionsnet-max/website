@@ -1,0 +1,8 @@
+# Original unoptimized assets (too large for git)
+assets/Audio Book Recording 5.28.25/
+assets/Main pictures/
+assets/*.mov
+
+# OS files
+.DS_Store
+Thumbs.db

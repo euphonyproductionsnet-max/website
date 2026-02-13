@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behind the Scenes — The Point | Euphony Productions</title>
+  <meta name="description" content="Behind the scenes photos from the recording of The Point audiobook by N. Lane Akin, narrated by Chance G. Overton.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .gallery-hero {
+      padding: 8rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, #1a0505 0%, #0d0a09 40%, #1a0a0a 100%);
+    }
+
+    .gallery-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-hero p {
+      font-family: var(--font-body);
+      color: var(--text-muted);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .masonry {
+      column-count: 3;
+      column-gap: 0.75rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 0.75rem;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.1);
+    }
+
+    @media (max-width: 900px) {
+      .masonry { column-count: 2; }
+    }
+
+    @media (max-width: 500px) {
+      .masonry { column-count: 1; max-width: 500px; }
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.95);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+      z-index: 10000;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="../assets/euphony_logo_circle.png" alt="Euphony Productions" class="nav-logo-img"><span>Euphony</span> Productions</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="../thepoint/">The Point</a></li>
+        <li><a href="./" class="active">Gallery</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61580489192746" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="gallery-hero">
+    <h1>Behind the Scenes</h1>
+    <p>Inside the recording sessions for The Point — Dawn of the Texas Meth War</p>
+  </div>
+
+  <!-- Gallery -->
+  <section class="section">
+    <div class="masonry" id="gallery">
+      <div class="masonry-item" data-index="0"><img src="../assets/gallery/recording-1.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="1"><img src="../assets/gallery/recording-2.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="2"><img src="../assets/gallery/recording-3.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="3"><img src="../assets/gallery/recording-4.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="4"><img src="../assets/gallery/recording-5.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="5"><img src="../assets/gallery/recording-6.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="6"><img src="../assets/gallery/recording-7.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="7"><img src="../assets/gallery/recording-8.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="8"><img src="../assets/gallery/recording-9.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="9"><img src="../assets/gallery/recording-10.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="10"><img src="../assets/gallery/recording-11.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="11"><img src="../assets/gallery/recording-12.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="12"><img src="../assets/gallery/recording-13.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="13"><img src="../assets/gallery/recording-14.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="14"><img src="../assets/gallery/recording-15.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="15"><img src="../assets/gallery/recording-16.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="16"><img src="../assets/gallery/recording-17.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="17"><img src="../assets/gallery/recording-18.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="18"><img src="../assets/gallery/recording-19.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="19"><img src="../assets/gallery/recording-20.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="20"><img src="../assets/gallery/recording-21.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="21"><img src="../assets/gallery/recording-22.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="22"><img src="../assets/gallery/recording-23.jpg" alt="Recording session" loading="lazy"></div>
+      <div class="masonry-item" data-index="23"><img src="../assets/gallery/recording-39.jpg" alt="Recording session" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <img id="lightboxImg" src="" alt="Gallery photo">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo"><img src="../assets/euphony_logo_circle.png" alt="" class="footer-logo-img"><span>Euphony</span> Productions</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="../thepoint/">The Point</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61580489192746" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2025 Euphony Productions LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Script -->
+  <script>
+    const items = document.querySelectorAll('.masonry-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+    const total = items.length;
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const src = items[index].querySelector('img').src;
+      lightboxImg.src = src;
+      lightboxCounter.textContent = (index + 1) + ' / ' + total;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + total) % total;
+      openLightbox(currentIndex);
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        openLightbox(parseInt(item.dataset.index));
+      });
+    });
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lightboxNext').addEventListener('click', () => navigate(1));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
+
+</body>
+</html>
