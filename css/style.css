@@ -93,8 +93,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 3px;
   background: var(--accent-red);
   margin-top: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .section-subtitle {
