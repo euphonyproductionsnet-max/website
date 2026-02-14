@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Euphony Productions</title>
+  <meta name="description" content="Get in touch with Euphony Productions. Send us a message or follow us on social media.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .contact-hero {
+      padding: 8rem 2rem 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, #1a0505 0%, #0d0a09 40%, #1a0a0a 100%);
+    }
+
+    .contact-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-hero p {
+      font-family: var(--font-body);
+      color: var(--text-muted);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .contact-social {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-divider::before,
+    .contact-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 500px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      transition: border-color 0.3s ease;
+      width: 100%;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent-red);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    .form-select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239a8a7c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-select option {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fff;
+      background: var(--accent-red);
+      border: none;
+      border-radius: 4px;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-red-light);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-status {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      display: none;
+      text-align: center;
+    }
+
+    .form-status.success {
+      display: block;
+      background: rgba(46, 125, 50, 0.15);
+      border: 1px solid rgba(46, 125, 50, 0.3);
+      color: #66bb6a;
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(198, 40, 40, 0.15);
+      border: 1px solid rgba(198, 40, 40, 0.3);
+      color: var(--accent-red-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="../assets/euphony_logo_circle.png" alt="Euphony Productions" class="nav-logo-img"><span>Euphony</span> Productions</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="../thepoint/">The Point</a></li>
+        <li><a href="../gallery/">Gallery</a></li>
+        <li><a href="./" class="active">Contact</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61580489192746" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>Have a question or want to work with us? We'd love to hear from you.</p>
+  </div>
+
+  <!-- Contact Content -->
+  <section class="section">
+    <div class="contact-content">
+
+      <!-- Social -->
+      <div class="contact-social">
+        <a href="https://www.facebook.com/profile.php?id=61580489192746" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Follow on Facebook
+        </a>
+      </div>
+
+      <!-- Divider -->
+      <div class="contact-divider">or send us a message</div>
+
+      <!-- Contact Form -->
+      <form id="contactForm" class="contact-form" autocomplete="on">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject</label>
+          <select class="form-select" id="subject" name="subject" required>
+            <option value="" disabled selected>Select a subject</option>
+            <option value="General">General</option>
+            <option value="Audiobook">Audiobook</option>
+            <option value="Collaboration">Collaboration</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Send Message
+          <span>&#8594;</span>
+        </button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo"><img src="../assets/euphony_logo_circle.png" alt="" class="footer-logo-img"><span>Euphony</span> Productions</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="../thepoint/">The Point</a></li>
+          <li><a href="../gallery/">Gallery</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61580489192746" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2025&ndash;2026 Euphony Productions LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contact Form Script -->
+  <script>
+    var form = document.getElementById('contactForm');
+    var btn = document.getElementById('submitBtn');
+    var status = document.getElementById('formStatus');
+    var statusTimeout;
+
+    function showStatus(msg, type) {
+      status.textContent = msg;
+      status.className = 'form-status ' + type;
+      clearTimeout(statusTimeout);
+      statusTimeout = setTimeout(function() {
+        status.className = 'form-status';
+      }, 6000);
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      var name = form.name.value.trim();
+      var email = form.email.value.trim();
+      var subject = form.subject.value;
+      var message = form.message.value.trim();
+
+      if (!name || !email || !subject || !message) {
+        showStatus('Please fill out all fields.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      try {
+        var res = await fetch('/api/contact/send', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+
+        var data = await res.json();
+
+        if (res.ok && data.ok) {
+          showStatus('Message sent! We\'ll get back to you soon.', 'success');
+          form.reset();
+        } else {
+          showStatus(data.error || 'Something went wrong. Please try again.', 'error');
+        }
+      } catch (err) {
+        showStatus('Network error. Please try again later.', 'error');
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message <span>&#8594;</span>';
+    });
+  </script>
+
+</body>
+</html>
