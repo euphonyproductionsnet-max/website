@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas Ranger, Wise County — The Relentless Pursuit of a Serial Killer | Euphony Productions</title>
+  <meta name="description" content="Texas Ranger, Wise County: The Relentless Pursuit of a Serial Killer — a gripping true-crime audiobook by N. Lane Akin, narrated by Chance G. Overton. A companion to The Point. Out now.">
+  <meta property="og:title" content="Texas Ranger, Wise County — The Relentless Pursuit of a Serial Killer | Audiobook">
+  <meta property="og:description" content="A gripping true-crime audiobook by N. Lane Akin, narrated by Chance G. Overton. A companion to The Point: Dawn of the Texas Meth War. Out now.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Page-specific styles for Texas Ranger, Wise County */
+    .tr-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0a0f1a 0%, #0d0a09 45%, #141a22 100%);
+      overflow: hidden;
+    }
+
+    .tr-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(120, 150, 200, 0.07) 0%, transparent 70%);
+    }
+
+    .tr-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .tr-book-cover {
+      width: 260px;
+      max-width: 60vw;
+      border-radius: 4px;
+      margin: 0 auto 2.5rem;
+      display: block;
+      box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(120, 150, 200, 0.15);
+      border: 1px solid var(--border-color);
+    }
+
+    .tr-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      line-height: 1.02;
+      color: var(--text-primary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 0 60px rgba(120, 150, 200, 0.22);
+    }
+
+    .tr-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2.6vw, 1.45rem);
+      color: var(--text-muted);
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    .tr-based {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .tr-series {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .tr-series a { color: var(--accent-warm-light); }
+
+    .tr-author {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--text-primary);
+      letter-spacing: 0.2em;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .tr-narrator {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .tr-producer {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 2rem;
+    }
+
+    .tr-scroll {
+      margin-top: 3rem;
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+
+    .tr-scroll-dot {
+      width: 24px;
+      height: 40px;
+      border: 2px solid var(--text-muted);
+      border-radius: 12px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .tr-scroll-dot::after {
+      content: '';
+      width: 4px;
+      height: 10px;
+      background: var(--text-muted);
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Behind the Scenes grid */
+    .bts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .bts-item {
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 3 / 2;
+    }
+
+    .bts-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .bts-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .bts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Purchase button colors */
+    .btn-audible { background: #f47521; }
+    .btn-audible:hover { background: #e0691a; color: #fff; }
+    .btn-apple { background: #2563eb; }
+    .btn-apple:hover { background: #1d4ed8; color: #fff; }
+    .btn-amazon { background: #ff9900; }
+    .btn-amazon:hover { background: #e68a00; color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><img src="../assets/euphony_logo_circle.png" alt="Euphony Productions" class="nav-logo-img"><span>Euphony</span> Productions</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="../thepoint/">The Point</a></li>
+        <li><a href="./" class="active">Texas Ranger</a></li>
+        <li><a href="#purchase">Get It</a></li>
+        <li><a href="../gallery/">Gallery</a></li>
+        <li><a href="../contact/">Contact</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61580489192746" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero / Title Section -->
+  <section class="tr-hero">
+    <div class="tr-hero-content">
+      <img src="../assets/Texas Ranger, Wise County.jpg" alt="Texas Ranger, Wise County: The Relentless Pursuit of a Serial Killer book cover" class="tr-book-cover">
+      <h1 class="tr-title">TEXAS RANGER,<br>WISE COUNTY</h1>
+      <p class="tr-subtitle">The Relentless Pursuit of a Serial Killer</p>
+      <p class="tr-based">Based Upon a True Story</p>
+      <p class="tr-series">A companion to <a href="../thepoint/">The Point: Dawn of the Texas Meth War</a></p>
+      <p class="tr-author">N. LANE AKIN</p>
+      <p class="tr-narrator">Narrated By Chance G. Overton</p>
+      <p class="tr-producer">A Euphony Productions LLC Audiobook</p>
+      <a href="#synopsis" class="tr-scroll" aria-label="Scroll down">
+        <div class="tr-scroll-dot"></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Synopsis -->
+  <section class="section" id="synopsis">
+    <div class="container" style="max-width:800px; text-align:center;">
+      <h2 class="section-title" style="margin-bottom:2rem;">About This Audiobook</h2>
+      <div class="synopsis" style="text-align:left;">
+        <p>Set against the backdrop of East Texas in February 1994, this true-crime account begins with the disappearance of seventeen-year-old Lilli Anne, a responsible Lindale High School junior whose late-night shift at Sonic ended like any other &mdash; until she never returned home. Her mother's horrifying discovery the next morning launched an intense search involving local law enforcement and the Texas Rangers, but Lilli seemed to vanish without a trace.</p>
+        <p>Months later, the same darkness surfaced hundreds of miles away in rural Wise County. As night settled over the town square in Decatur, a masked gunman stormed the Supreme Salon in a violent aggravated robbery that shook the close-knit community. Sheriff Bill Bryan, the Wise County Sheriff's Office, and a newly promoted Texas Ranger pursued the suspect with relentless determination. What they uncovered pointed to something far more sinister than a single robbery &mdash; a dangerous predator connected to multiple young victims and numerous missing women across the southeastern United States. Evidence suggested many had fallen prey to a homicidal drifter whose crimes stretched far beyond county lines.</p>
+        <p>Through the resolve of dedicated citizens, investigators, and prosecutors, the case culminated in a conviction in the 271st District Court &mdash; an example of the criminal justice system functioning at its strongest. But the story did not end with the verdict. In the wake of the sentencing, hidden corruption within Wise County began to surface, threatening both public trust and public safety. The danger escalated when an attempted assassination targeted Texas Ranger Dan Allen, placing both the Ranger and his young family directly in the crosshairs.</p>
+        <p>Part murder investigation, part courtroom drama, and part expos&eacute; of corruption within the system itself, this gripping account follows the pursuit of justice through fear, violence, and betrayal in small-town Texas.</p>
+      </div>
+
+      <!-- Details -->
+      <div class="details-grid">
+        <div class="detail-row">
+          <span class="detail-label">Release Date</span>
+          <span class="detail-value">06-01-26</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Length</span>
+          <span class="detail-value">12 hrs and 31 mins</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Language</span>
+          <span class="detail-value">English</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Publisher</span>
+          <span class="detail-value">Euphony Productions LLC</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Format</span>
+          <span class="detail-value">Unabridged Audiobook</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Categories</span>
+          <span class="detail-value">Mystery, Thriller &amp; Suspense</span>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin-top:2rem; font-family:var(--font-sans); font-size:0.75rem; color:var(--text-muted);">&copy;2025 N. Lane Akin (P)2026 Euphony Productions LLC</p>
+    </div>
+  </section>
+
+  <!-- Behind the Scenes Preview -->
+  <section class="section" id="behind" style="background:var(--bg-card);">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Behind the Scenes</h2>
+      <p style="text-align:center; color:var(--text-muted); font-family:var(--font-body); font-size:1rem; margin-bottom:2rem;">Inside the recording sessions</p>
+      <div class="bts-grid">
+        <div class="bts-item"><img src="../assets/gallery/recording-3.jpg" alt="Studio session" loading="lazy"></div>
+        <div class="bts-item"><img src="../assets/gallery/recording-8.jpg" alt="Narrator at work" loading="lazy"></div>
+        <div class="bts-item"><img src="../assets/gallery/recording-12.jpg" alt="At the microphone" loading="lazy"></div>
+        <div class="bts-item"><img src="../assets/gallery/recording-17.jpg" alt="Behind the scenes" loading="lazy"></div>
+        <div class="bts-item"><img src="../assets/gallery/recording-21.jpg" alt="In the studio" loading="lazy"></div>
+        <div class="bts-item"><img src="../assets/gallery/recording-23.jpg" alt="Recording session" loading="lazy"></div>
+      </div>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="../gallery/" class="btn btn-outline btn-sm">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purchase Section -->
+  <section class="section" id="purchase">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Get the Audiobook</h2>
+      <p style="text-align:center; color:var(--text-muted); font-family:var(--font-body); font-size:1rem; margin-bottom:2.5rem;">Visit these sites to purchase Texas Ranger, Wise County</p>
+
+      <div class="purchase-grid">
+        <!-- Audible -->
+        <div class="purchase-card">
+          <div class="purchase-icon" style="background:linear-gradient(135deg,#f47521,#e0691a);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <h4>Audible</h4>
+          <p class="desc">Premium audiobook experience</p>
+          <a href="https://www.audible.com/pd/Texas-Ranger-Wise-County-Audiobook/B0H3CRGWFT" target="_blank" rel="noopener" class="btn btn-audible btn-sm" style="color:#fff;">Buy on Audible</a>
+        </div>
+
+        <!-- Apple Books -->
+        <div class="purchase-card">
+          <div class="purchase-icon" style="background:linear-gradient(135deg,#2563eb,#1d4ed8);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          </div>
+          <h4>Apple Books</h4>
+          <p class="desc">Seamless iOS integration</p>
+          <a href="https://books.apple.com/us/audiobook/texas-ranger-wise-county-the-relentless-pursuit/id6775537355" target="_blank" rel="noopener" class="btn btn-apple btn-sm" style="color:#fff;">Buy on Apple Books</a>
+        </div>
+
+        <!-- Amazon -->
+        <div class="purchase-card">
+          <div class="purchase-icon" style="background:linear-gradient(135deg,#ff9900,#e68a00);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M.045 18.02c.072-.116.187-.18.348-.18.058 0 .14.018.249.057 2.41 1.066 5.04 1.6 7.89 1.6 1.95 0 3.876-.276 5.78-.83.18-.06.357-.09.534-.09.16 0 .278.05.357.15.08.1.12.21.12.34 0 .18-.09.33-.27.45-2.16 1.27-4.62 1.9-7.38 1.9-3.36 0-6.39-1.05-9.09-3.15-.18-.13-.27-.27-.27-.42 0-.06.02-.12.05-.18zm15.84-1.5c-.18 0-.34.04-.48.12-.06.04-.09.09-.09.15 0 .09.06.13.18.13.06 0 .15-.01.27-.03.12-.02.24-.04.36-.06.36-.04.66-.04.9.01.24.05.39.16.45.33.06.18.05.42-.03.72-.16.6-.45 1.11-.87 1.53-.12.12-.18.21-.18.27 0 .04.02.07.06.09.04.02.08.02.12 0 .42-.18.78-.51 1.08-.99.3-.48.48-.99.54-1.53.04-.36-.01-.63-.15-.81-.18-.18-.45-.27-.81-.27z"/><path d="M18.6 14.7c-1.86 1.38-4.56 2.1-6.87 2.1-3.24 0-6.15-1.2-8.37-3.18-.18-.16-.02-.37.18-.25 2.4 1.39 5.37 2.23 8.43 2.23 2.07 0 4.35-.43 6.45-1.32.31-.13.58.21.15.42z"/></svg>
+          </div>
+          <h4>Amazon</h4>
+          <p class="desc">Audiobook &amp; more</p>
+          <a href="https://www.amazon.com/Texas-Ranger-Wise-County-Relentless/dp/B0H3CM552D" target="_blank" rel="noopener" class="btn btn-amazon btn-sm" style="color:#fff;">Buy on Amazon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo"><img src="../assets/euphony_logo_circle.png" alt="" class="footer-logo-img"><span>Euphony</span> Productions</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="../thepoint/">The Point</a></li>
+          <li><a href="./">Texas Ranger</a></li>
+          <li><a href="../gallery/">Gallery</a></li>
+          <li><a href="../contact/">Contact</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61580489192746" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+        <p class="footer-copy">&copy;2025 N. Lane Akin (P)2026 Euphony Productions LLC &middot; v1.0.0</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
